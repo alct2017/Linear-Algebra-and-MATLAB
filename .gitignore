@@ -1,1 +1,8 @@
 .vscode
+*.dvi
+*.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+__latexindent_temp.tex

@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage{amsmath}
+\newcommand{\vecs}[1]{\boldsymbol{#1}}
+\newcommand{\cvec}[2]{\begin{bmatrix}#1_1\\#1_2\\\vdots\\#1_#2\end{bmatrix}}
+\newcommand{\cvecs}[2]{\begin{bmatrix}#1_1,#1_2,\dots,#1_#2\end{bmatrix}}
+\newcommand{\rvec}[2]{\begin{bmatrix}#1_1&#1_2&\ldots&#1_#2\end{bmatrix}}
+\newcommand{\rvecs}[2]{\begin{bmatrix}#1_1&#1_2&\dots&#1_#2\end{bmatrix}}
+\begin{document}
+    \title{Vectors and Matrices}
+    \author{}
+    \date{}
+    \maketitle
+
+    \section{Vector}
+
+    \subsection{Column Vectors and Row Vectors}
+
+    \begin{description}
+        \item[Column vectors] is, in the simplest way, components written in a column.
+        \item[Row vectors] is similar as column vector, that is, components in row.
+    \end{description}
+
+    \begin{align*}
+        \textbf{Column Vector}&\quad\vecs{v}=\cvec{v}{n},\text{also written as}\quad\vecs{v}=\cvecs{v}{n}.\\
+        \textbf{Row Vector}&\quad\vecs{w}=\rvec{w}{v},\text{or}\quad\vecs{w}=\rvecs{w}{n}.
+    \end{align*}
+    
+    
+    \subparagraph*{Notice}the only difference between row and column vector is that there is no comma among components in the latter.
+
+    \subsection{Linear Combination}
+
+    There are two basic operations in vectors:
+    \begin{align*}
+        \textbf{Vector Addition}&\quad\vecs{v}+\vecs{w}=\cvec{v}{n}+\cvec{w}{n}=\begin{bmatrix}v_1+w_1\\v_2+w_2\\\vdots\\v_n+w_n\end{bmatrix}\\
+        \textbf{Scalar Multiplication}&\quad t\times\vecs{v}=t\times\cvec{v}{n}=\cvec{tv}{n}
+    \end{align*}
+
+    \emph{Linear Combination}, one of the most important concepts of linear algebra, is base on these operations.
+    
+    \begin{description}
+        \item[Linear Combination] of $\vecs{v}$ and $\vecs{w}$ is $c\vecs{v}+d\vecs{w}$. 
+    \end{description}
+
+    The definition of linear combination can be extended to more than 2 vectors. For instance, the linear combination of three vector $\vecs{u}$, $\vecs{v}$ and $\vecs{w}$ is $c\vecs{u}+d\vecs{v}+e\vecs{w}$.
+
+    \section{Matrix}
+
+    Matrix comes from linear equations. Suppose we have linear equation
+    \begin{equation*}
+        \begin{split}
+        a_{11}x_1+a_{12}x_2+a_{13}x_3=b_1\\
+        a_{21}x_1+a_{22}x_2+a_{23}x_3=b_2\\
+        a_{31}x_1+a_{32}x_2+a_{33}x_3=b_3
+        \end{split}\tag{$*$}
+    \end{equation*}
+
+    This equation can be rewritten using vector:
+    \begin{equation*}
+        x_1\begin{bmatrix}a_{11}\\a_{21}\\a_{31}\end{bmatrix}+
+        x_2\begin{bmatrix}a_{12}\\a_{22}\\a_{32}\end{bmatrix}+
+        x_3\begin{bmatrix}a_{13}\\a_{23}\\a_{33}\end{bmatrix}=
+        \begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}
+    \end{equation*}
+
+    even as
+    \begin{equation*}
+        \begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}
+        \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=
+        \begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}
+    \end{equation*}
+
+    $A=\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}$ is a matrix, we can consider it as the combination of three column vectors.
+
+    So the equation $(*)$ can be abbreviated to
+    $$A\vecs{x}=\vecs{b}$$
+
+    This is one of the most important equation in linear algebra. A major topic in linear algebra is whether the equation has a solution and how to slove it.
+
+    \subsection{Matrix Operation}
+
+    Matrices can be add and multipled by scalar as vectors. It can also be multipled by vector above. But the most important operation is being multipled by another matrix.
+
+    Let's say equations:
+    \begin{gather*}
+        A\begin{bmatrix}
+            b_{11}\\b_{21}\\b_{31}
+        \end{bmatrix}=
+        \begin{bmatrix}
+            c_{11}\\c_{21}\\c_{31}
+        \end{bmatrix}\quad
+        A\begin{bmatrix}
+            b_{12}\\b_{22}\\b_{32}
+        \end{bmatrix}=
+        \begin{bmatrix}
+            c_{12}\\c_{22}\\c_{32}
+        \end{bmatrix}
+    \end{gather*}
+
+    as above we can write it like
+    \begin{equation*}
+        A\begin{bmatrix}
+            b_{11}&b_{12}\\
+            b_{21}&b_{22}\\
+            b_{31}&b_{32}
+        \end{bmatrix}=
+        \begin{bmatrix}
+            c_{11}&c_{12}\\
+            c_{21}&c_{22}\\
+            c_{31}&c_{32}
+        \end{bmatrix}
+    \end{equation*}
+
+    that is
+    \begin{equation*}
+        \begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}
+        \begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\\b_{31}&b_{32}\end{bmatrix}
+            =
+        \begin{bmatrix}c_{11}&c_{12}\\c_{21}&c_{22}\\c_{31}&c_{32}\end{bmatrix}
+    \end{equation*}
+
+    Since the abbreviated formula must have the same meaning as origional one, we can conclude the princple of matrix multiplication. There are 4 ways to consider it:
+    \begin{enumerate}
+        \item the $(i,j)$ entry of $C$ is $(i$th row of $A)\cdot(j$th column of $B)$
+    
+            Since the origional formula is$$\begin{gathered}a_{11}b_{11}+a_{12}b_{21}+a_{13}b_{31}=c_{11}\\a_{21}b_{11}+a_{22}b_{21}+a_{23}b_{31}=c_{21}\\\dots\end{gathered}$$
+
+            we got$$\begin{aligned}c_{ij}&=\sum_{k=1}^{n}a_{ik}b_{kj}\\&=\text{(} i\text{th row of }A\text{)}\cdot\text{(}j\text{th column of }B)\end{aligned}$$
+
+        \item the $i$th row of $C$ is $(i$th row of $A)\cdot B$
+        \item the $j$th column of $C$ is $A\cdot (j$th column of $B)$
+        \item C is the sum of all $(i$th column of $A)\cdot(j$th row of $B)$
+    \end{enumerate}
+
+    \subsection{The Law of Matrix Operations}
+
+    $$\begin{aligned}
+        A+B&=B+A&\text{(commutative law)}\\
+        c(A+B)&=cA+cB&\text{(distributive law)}\\
+        A+(B+C)&=(A+B)+C&\text{(associative law)}\\
+        \\
+        AB&\not =BA&\text{(no commutative law)}\\
+        A(B+C)&=AB+AC&\text{(distributive law from the left)}\\
+        (A+B)C&=AC+BC&\text{(distributive law from the right)}\\
+        A(BC)&=(AB)C&\text{(associative law)}\\
+        \\
+        (A^p)(A^q)&=A^{p+q}\\
+        (A^p)^q&=A^{pq}
+    \end{aligned}$$
+
+    \subsection{Block Matrix and Block Multiplication}
+
+    The entry of a matrix can be other matrices, for exmple, let's say
+    $$A=\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}\quad
+        B=\begin{bmatrix}b_1&b_2&b_3\end{bmatrix}\quad
+            C=\begin{bmatrix}c\end{bmatrix}$$
+
+    then we can say
+    $$S=\begin{bmatrix}a_{11}&a_{12}&a_{13}&b_{1}\\a_{21}&a_{22}&a_{23}&b_{2}\\a_{31}&a_{32}&a_{33}&b_{3}\\b_1&b_2&b_3&c\end{bmatrix}
+        =\begin{bmatrix}A&B^T\\B&C\end{bmatrix}$$
+
+    If the block's size agree, block matrix can multiple
+    $$\begin{bmatrix}A_{11}&A_{12}\\A_{21}&A_{22}\end{bmatrix}
+    \begin{bmatrix}B_{11}\\B_{21}\end{bmatrix}
+    =\begin{bmatrix}A_{11}B_{11}+A_{12}B_{21}\\A_{21}B_{11}+A_{22}B_{21}\end{bmatrix}$$
+    
+\end{document}
